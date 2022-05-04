@@ -3,22 +3,22 @@ from dispositivo import Dispositivo
 class Ambiente():
 	def __init__(self):
 		self.dispositivos = {}
-		self.commandQueue = []
+		self.command_queue = []
 		
 
 	def add_dispositivo(self,name,dispositivo):
 		self.dispositivos[name] = dispositivo
 
-	def sendSignal(self,to):
+	def send_signal(self,to):
 		if(to in self.dispositivos):
-			self.commandQueue.append(to)
+			self.command_queue.append(to)
 
-	def fetchSignal(self):
-		if(len(self.commandQueue) > 0):
-			name =self.commandQueue.pop(0)
+	def fetch_signal(self):
+		if(len(self.command_queue) > 0):
+			name =self.command_queue.pop(0)
 			print("signal sent to: " + name,end="; ")
-			self.dispositivos[name].recieveSignal()
+			self.dispositivos[name].recieve_signal()
 
 	def start(self):
 		while True:
-			self.fetchSignal()
+			self.fetch_signal()

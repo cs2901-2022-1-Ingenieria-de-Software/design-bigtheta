@@ -17,16 +17,16 @@ def main():
 	t.start()
 
 	#remote control commands
-	remoteControl.sendSignal("fan")
-	remoteControl.sendSignal("redLight")
-	remoteControl.sendSignal("yellowLight")
-	remoteControl.sendSignal("whiteLight")
-	remoteControl.sendSignal("something")
-	remoteControl.sendSignal("fan")
-	remoteControl.sendSignal("redLight")
-	remoteControl.sendSignal("yellowLight")
-	remoteControl.sendSignal("whiteLight")
-	remoteControl.sendSignal("something")
+	remoteControl.send_signal("fan")
+	remoteControl.send_signal("redLight")
+	remoteControl.send_signal("yellowLight")
+	remoteControl.send_signal("whiteLight")
+	remoteControl.send_signal("something")
+	remoteControl.send_signal("fan")
+	remoteControl.send_signal("redLight")
+	remoteControl.send_signal("yellowLight")
+	remoteControl.send_signal("whiteLight")
+	remoteControl.send_signal("something")
 
 if __name__ =="__main__":
 	main()
