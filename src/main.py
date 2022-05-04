@@ -1,7 +1,7 @@
-from fan import *
-from light import *
-from ambiente import *
-from remoteControl import *
+from fan import Fan
+from light import Light
+from ambiente import Ambiente
+from remoteControl import RemoteControl
 import threading
 
 def main():
@@ -11,22 +11,22 @@ def main():
 	ambiente.add_dispositivo("yellowLight", Light("yellow"))
 	ambiente.add_dispositivo("whiteLight", Light("white"))
 	#print(ambiente.dispositivos)
-	remoteControl = RemoteControl(ambiente)
+	remote_control = RemoteControl(ambiente)
 
 	t = threading.Thread(target=ambiente.start)
 	t.start()
 
 	#remote control commands
-	remoteControl.send_signal("fan")
-	remoteControl.send_signal("redLight")
-	remoteControl.send_signal("yellowLight")
-	remoteControl.send_signal("whiteLight")
-	remoteControl.send_signal("something")
-	remoteControl.send_signal("fan")
-	remoteControl.send_signal("redLight")
-	remoteControl.send_signal("yellowLight")
-	remoteControl.send_signal("whiteLight")
-	remoteControl.send_signal("something")
+	remote_control.send_signal("fan")
+	remote_control.send_signal("redLight")
+	remote_control.send_signal("yellowLight")
+	remote_control.send_signal("whiteLight")
+	remote_control.send_signal("something")
+	remote_control.send_signal("fan")
+	remote_control.send_signal("redLight")
+	remote_control.send_signal("yellowLight")
+	remote_control.send_signal("whiteLight")
+	remote_control.send_signal("something")
 
 if __name__ =="__main__":
 	main()
