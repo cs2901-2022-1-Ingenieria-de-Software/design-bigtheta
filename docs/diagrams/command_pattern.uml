@@ -1,0 +1,25 @@
+```plantuml
+@startuml
+left to right direction
+package User_interface #DDDDDD {
+  class Button {}
+  class Menu_item {}
+  class Shortcut {}
+}
+
+class Save_command {
+  + execute()
+}
+
+package Bussiness_logic #DDDDDD {
+  class Server {
+    + do_something()
+  }
+}
+
+Button --> Save_command
+Menu_item --> Save_command
+Shortcut --> Save_command
+Save_command --> Server : execute()
+@enduml
+```

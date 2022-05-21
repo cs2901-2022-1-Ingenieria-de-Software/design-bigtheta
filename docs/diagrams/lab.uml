@@ -1,4 +1,3 @@
-### uml: class diagram
 ```plantuml
 @startuml
 package "hum" #DDDDDD {
