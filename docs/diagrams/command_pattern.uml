@@ -1,5 +1,6 @@
 ```plantuml
 @startuml
+skinparam dpi 300
 left to right direction
 package User_interface #DDDDDD {
   class Button {}

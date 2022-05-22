@@ -1,23 +1,78 @@
 ```plantuml
 @startuml
-package "hum" #DDDDDD {
-    class Dispositivo {
-        + on
+skinparam dpi 300
+left to right direction
+package Ambiente #DDDDDD {
+  package Sender #DDDDDD {
+    class "Remote_control" as RC {
+      + turn_on()
+      + turn_off()
+      + switch()
+    }
+  }
+
+  abstract class "Command" as C {
+    + {abstract} execute()
+  }
+
+  class "Command_turn_on" as CTON {
+    + execute()
+  }
+
+  class "Command_turn_off" as CTOFF {
+    + execute()
+  }
+
+  class "Command_switch" as CS {
+    + execute()
+  }
+
+  package Receiver #DDDDDD {
+    abstract class "Device" as D {
+      - state
+      --
+      + getters()
+      + setters()
+      + turn_on()
+      + turn_off()
+      + switch()
+      + {abstract} print()
     }
 
-    class Light <<Ambiente>>
-    class Fan <<Ambiente>>
-
-    class Ambiente {
-        + dispositivos
-				+ commandQueue
+    class "Fan" as F {
+      + print()
     }
 
-    class RemoteControl {
-        + ambiente
+    class "Red_light" as RL {
+      + print()
     }
 
-   	RemoteControl *-- Ambiente
+    class "Yellow_light" as YL {
+      + print()
+    }
+
+    class "White_light" as WL {
+      + print()
+    }
+  }
 }
+
+CTON -|> C
+CTOFF -|> C
+CS -|> C
+
+RC::turn_on --> CTON::execute
+RC::turn_off --> CTOFF::execute
+RC::switch --> CS::execute
+
+CTON::execute --> D::turn_on
+CTOFF::execute --> D::turn_off
+CS::execute --> D::switch
+
+D <|-- F
+D <|-- RL
+D <|-- YL
+D <|-- WL
+
 @enduml
 ```
