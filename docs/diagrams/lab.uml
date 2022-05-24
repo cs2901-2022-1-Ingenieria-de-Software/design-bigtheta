@@ -2,9 +2,11 @@
 @startuml
 skinparam dpi 300
 left to right direction
-package Ambiente #DDDDDD {
+package Environment #DDDDDD {
   package Sender #DDDDDD {
     class "Remote_control" as RC {
+      - devices
+      --
       + turn_on()
       + turn_off()
       + switch()
@@ -12,18 +14,26 @@ package Ambiente #DDDDDD {
   }
 
   abstract class "Command" as C {
+    - device
+    --
     + {abstract} execute()
   }
 
   class "Command_turn_on" as CTON {
+    - device
+    --
     + execute()
   }
 
   class "Command_turn_off" as CTOFF {
+    - device
+    --
     + execute()
   }
 
   class "Command_switch" as CS {
+    - device
+    --
     + execute()
   }
 
@@ -36,23 +46,27 @@ package Ambiente #DDDDDD {
       + turn_on()
       + turn_off()
       + switch()
-      + {abstract} print()
+      + {abstract} print_state()
     }
 
     class "Fan" as F {
-      + print()
+      + print_state()
+    }
+
+    class "Light" as L {
+      + {abstract} print_state()
     }
 
     class "Red_light" as RL {
-      + print()
+      + print_state()
     }
 
     class "Yellow_light" as YL {
-      + print()
+      + print_state()
     }
 
     class "White_light" as WL {
-      + print()
+      + print_state()
     }
   }
 }
@@ -70,9 +84,11 @@ CTOFF::execute --> D::turn_off
 CS::execute --> D::switch
 
 D <|-- F
-D <|-- RL
-D <|-- YL
-D <|-- WL
+D <|-- L
+
+L <|-- RL
+L <|-- YL
+L <|-- WL
 
 @enduml
 ```
