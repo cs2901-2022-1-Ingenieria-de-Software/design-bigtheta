@@ -1,14 +1,14 @@
-from command import Command_turn_on, Command_turn_off, Command_switch
+from command import CommandTurnOn, CommandTurnOff, CommandSwitch
 from fan import Fan
-from light import Red_light, Yellow_light, White_light
+from light import RedLight, YellowLight, WhiteLight
 from remote_control import Remote_control
 
 def main():
-    rc = Remote_control(Command_turn_on, Command_turn_off, Command_switch)
+    rc = Remote_control(CommandTurnOn, CommandTurnOff, CommandSwitch)
     rc.add_device('fan', Fan())
-    rc.add_device('red', Red_light())
-    rc.add_device('yellow', Yellow_light())
-    rc.add_device('white', White_light())
+    rc.add_device('red', RedLight())
+    rc.add_device('yellow', YellowLight())
+    rc.add_device('white', WhiteLight())
 
     remote_control = Remote_control()
     if id(remote_control) == id(rc):

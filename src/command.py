@@ -9,21 +9,21 @@ class Command(ABC):
     def execute(self) -> None:
         pass
 
-class Command_turn_on(Command):
+class CommandTurnOn(Command):
     def __init__(self, device: Device) -> None:
         super().__init__(device)
 
     def execute(self) -> None:
         self.device.turn_on()
 
-class Command_turn_off(Command):
+class CommandTurnOff(Command):
     def __init__(self, device: Device) -> None:
         super().__init__(device)
 
     def execute(self) -> None:
         self.device.turn_off()
 
-class Command_switch(Command):
+class CommandSwitch(Command):
     def __init__(self, device: Device) -> None:
         super().__init__(device)
 

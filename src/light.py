@@ -11,14 +11,14 @@ class Light(Device):
         else:
             print(f'{self.color} light is off.')
 
-class Red_light(Light):
+class RedLight(Light):
     def __init__(self, *args) -> None:
         super().__init__('Red', *args)
 
-class Yellow_light(Light):
+class YellowLight(Light):
     def __init__(self, *args) -> None:
         super().__init__('Yellow', *args)
 
-class White_light(Light):
+class WhiteLight(Light):
     def __init__(self, *args) -> None:
         super().__init__('White', *args)
