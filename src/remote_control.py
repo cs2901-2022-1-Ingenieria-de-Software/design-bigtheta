@@ -2,7 +2,7 @@ from device import Device
 from singleton_decorator import singleton
 
 @singleton
-class Remote_control():
+class RemoteControl():
     _devices = {}
     _turn_on: type
     _turn_off: type
